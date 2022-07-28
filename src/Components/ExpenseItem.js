@@ -2,7 +2,7 @@ import React from 'react'
 
 function ExpenseItem() {
   return (
-    <div>ExpenseItem</div>
+    <div>ExpenseItem haha</div>
   )
 }
 
