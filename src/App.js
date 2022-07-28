@@ -1,28 +1,44 @@
-import React from 'react';
+import React , { useState } from 'react';
 import './App.css';
 import Alert from './Components/Alert';
 import ExpenseForm from './Components/ExpenseForm';
 import ExpenseList from './Components/ExpenseList';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
 const initialExpenses = [
-  {id: 1, charge:"rent", amount: 1600},
-  {id: 2, charge:"car payment", amount: 400},
-  {id: 3, charge:"credit card bill", amount: 1200}
+  {id: uuidv4(), charge:"rent", amount: 1600},
+  {id: uuidv4(), charge:"car payment", amount: 400},
+  {id: uuidv4(), charge:"credit card bill", amount: 1200}
 ]
 
-console.log(initialExpenses);
 
 function App() {
-  return (
-    <div className="App">
-      <h1>hello from app</h1>
-      <ExpenseForm></ExpenseForm>
-      <ExpenseList></ExpenseList>
-      <Alert></Alert>
 
-    </div>
+const [expenses, setExpenses] = useState(initialExpenses)
+
+  return (
+    <>
+      
+      <Alert/>
+      <h1>Budget Calculator</h1>
+      <main className='App'>
+      <ExpenseForm/>
+      <ExpenseList expenses={expenses}/>
+      </main>
+      <h1>
+        Total Spending : {" "}
+        <span className='total'>
+        €{" "}
+          {expenses.reduce((accumulator, current) => {
+            return accumulator += current.amount
+          }, 0)}
+        </span>
+      </h1>
+
+
+    </>
   );
 }
 
