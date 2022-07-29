@@ -15,8 +15,13 @@ const initialExpenses = [
 
 
 function App() {
+  // STATE CVALUES
+  //ALL EXPENSES, ADDING EXPENSE
 
 const [expenses, setExpenses] = useState(initialExpenses)
+
+
+// FUNCTIONALITY
 
   return (
     <>
