@@ -30,7 +30,7 @@ const [expenses, setExpenses] = useState(initialExpenses)
       <h1>
         Total Spending : {" "}
         <span className='total'>
-        €{" "}
+        {" "}€
           {expenses.reduce((accumulator, current) => {
             return accumulator += current.amount
           }, 0)}
